@@ -39,7 +39,7 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
         use_sql_comments: true
-  
+
 
   rabbitmq:
     host: user-rabbitmq
@@ -72,7 +72,7 @@ spring:
     mode: HTML
     encoding: UTF-8
     servlet:
-      content-type: text/html            
+      content-type: text/html
 
 # RabbitMQ Custom Configuration
 rabbitmq:
@@ -87,7 +87,7 @@ rabbitmq:
 # Application Configuration
 app:
   name: ScholarAI Notification Service
-  version: 1.0.0      
+  version: 1.0.0
 
 server:
   port: 8082
@@ -111,7 +111,7 @@ eureka:
     secure-port-enabled: false
     non-secure-port-enabled: true
     lease-renewal-interval-in-seconds: 30
-    lease-expiration-duration-in-seconds: 90    
+    lease-expiration-duration-in-seconds: 90
 
 
 management:

@@ -18,7 +18,7 @@ APP_NAME="notification_service"
 CONTAINER_NAME="scholar-notification-service"
 IMAGE_NAME="scholar-notification-service:latest"
 NETWORK_NAME="scholarai-network"
-DEFAULT_PORT=8083
+DEFAULT_PORT=8082
 
 # Function to print colored output
 print_status() {
@@ -92,7 +92,7 @@ rebuild_nocache() {
 
 # Function to run the application
 run() {
-    print_status "Starting $APP_NAME container..."
+    print_status "Starting $APP_NAME container with dependencies..."
     
     # Check if container is already running
     if docker ps | grep -q "$CONTAINER_NAME"; then
@@ -103,14 +103,16 @@ run() {
     
     create_network
     
-    # Start the container
+    # Start the container with dependencies
     docker-compose up -d
     
     print_success "Container started successfully!"
     print_status "Notification Service is available at http://localhost:$DEFAULT_PORT"
+    print_status "PostgreSQL is available at localhost:5434"
+    print_status "RabbitMQ Management is available at http://localhost:15672"
     
     # Wait a moment and check if it started successfully
-    sleep 20
+    sleep 25
     if ! docker ps | grep -q "$CONTAINER_NAME"; then
         print_error "Container failed to start. Check logs:"
         docker-compose logs
@@ -122,7 +124,7 @@ run() {
 
 # Function to stop the application
 stop() {
-    print_status "Stopping $APP_NAME container..."
+    print_status "Stopping $APP_NAME container and dependencies..."
     
     docker-compose down
     
@@ -142,7 +144,7 @@ status() {
     if docker ps | grep -q "$CONTAINER_NAME"; then
         print_success "Container $CONTAINER_NAME is running"
         print_status "Notification Service: http://localhost:$DEFAULT_PORT"
-        docker ps --filter "name=scholar-notification" --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+        docker ps --filter "name=scholar-notification\\|scholar-rabbitmq" --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
     else
         print_warning "Container $CONTAINER_NAME is not running"
     fi
@@ -177,8 +179,8 @@ show_help() {
     echo "Commands:"
     echo "  build                    Build the Docker image"
     echo "  rebuild-nocache          Rebuild the Docker image without cache"
-    echo "  run                      Start the container"
-    echo "  stop                     Stop the container"
+    echo "  run                      Start the container with dependencies (PostgreSQL + RabbitMQ)"
+    echo "  stop                     Stop the container and dependencies"
     echo "  restart                  Restart the container"
     echo "  status                   Show container status"
     echo "  logs                     Show container logs (follow mode)"

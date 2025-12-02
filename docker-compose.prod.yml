@@ -4,25 +4,26 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: scholar-notification-service
+
+    # 🏷️ Add metadata labels for cleanup & observability
+    labels:
+      service: "notification-service"
+      maintainer: "ScholarAI <dev@scholarai.local>"
+      version: "0.0.1-SNAPSHOT"
+      description: "Notification Service for ScholarAI"
     env_file:
-      - .env
+      - /opt/scholarai/envs/notification-service.env
     ports:
       - "8082:8082"
 
     environment:
-      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILE}
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILE:-prod}
       - SERVER_PORT=8082
       - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://service-registry:8761/eureka/
       # Database connection (will use notification-db)
       - NOTIFICATION_DB_HOST=notification-db
-      - NOTIFICATION_DB_PORT=${NOTIFICATION_DB_PORT}
-      - NOTIFICATION_DB_USER=${NOTIFICATION_DB_USER}
-      - NOTIFICATION_DB_PASSWORD=${NOTIFICATION_DB_PASSWORD}
       # RabbitMQ
       - RABBITMQ_HOST=user-rabbitmq
-      - RABBITMQ_PORT=${RABBITMQ_PORT}
-      - RABBITMQ_USER=${RABBITMQ_USER}
-      - RABBITMQ_PASSWORD=${RABBITMQ_PASSWORD}
 
       # JVM: small heap, exit on OOM
       - JAVA_TOOL_OPTIONS=-XX:InitialRAMPercentage=20 -XX:MaxRAMPercentage=60 -XX:+UseStringDeduplication -XX:+ExitOnOutOfMemoryError
