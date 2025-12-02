@@ -1,0 +1,71 @@
+# Maven build artifacts
+target/
+!target/*.jar
+!target/classes/
+!target/generated-sources/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Documentation
+README.md
+*.md
+HELP.md
+
+# Logs
+*.log
+logs/
+
+# Environment files
+.env
+.env.*
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Maven local repository cache
+.m2/
+
+# Build scripts
+scripts/
+*.sh
+*.bat
+
+# Coverage reports
+coverage/
+.nyc_output/
+
+# JVM crash logs
+hs_err_pid*
+
+# Spring Boot specific
+.springBeans
