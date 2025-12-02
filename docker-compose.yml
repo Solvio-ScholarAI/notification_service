@@ -46,4 +46,4 @@ services:
 networks:
   scholarai-network:
     external: true
-    name: scholarai-network
+    name: docker_scholarai-network
