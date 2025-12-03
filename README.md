@@ -59,7 +59,7 @@
 
 1. **Clone and Build**
    ```bash
-   git clone https://github.com/Javafest2025/notification-service.git
+   git clone https://github.com/Solvio-ScholarAI/notification-service.git
    cd notification-service
    ./mvnw clean install
    ```
