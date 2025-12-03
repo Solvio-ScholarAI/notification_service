@@ -12,7 +12,7 @@
   [Quick Start](#-quick-start) · [API Documentation](#-api-endpoints) · [Templates](#-email-templates) · [Configuration](#-configuration)
 </div>
 
----
+---------------------------------------------------------
 
 ## ✨ **Core Features**
 
