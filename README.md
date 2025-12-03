@@ -300,7 +300,7 @@ rabbitmq:
 | `GMAIL_APP_PASSWORD` | Gmail app password | - |
 | `EUREKA_CLIENT_SERVICEURL_DEFAULTZONE` | Eureka server URL | `http://localhost:8761/eureka/` |
 
----
+---------------------------------------------------------------
 
 ## 📧 **Email Templates**
 
@@ -355,7 +355,7 @@ All email templates are located in `src/main/resources/templates/` and use Thyme
 - **Responsive**: Mobile-friendly email layouts
 - **Branding**: ScholarAI color scheme and typography
 
----
+--------------------------------------------------------------
 
 ## 📊 **API Endpoints**
 
