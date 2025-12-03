@@ -166,7 +166,7 @@ docker run -d --name scholar-notification-service \
   scholar-notification-service
 ```
 
----
+-----------------------------------------------------------
 
 ## 🏗️ **Architecture**
 
@@ -222,7 +222,7 @@ graph TB
 }
 ```
 
----
+---------------------------------------------------------
 
 ## 📋 **Configuration**
 
