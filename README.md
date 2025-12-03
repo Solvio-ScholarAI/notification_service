@@ -43,7 +43,7 @@
 - **Docker Support**: Containerized deployment with health checks
 - **Code Quality**: Spotless formatting and MapStruct object mapping
 
----
+-------------------------------------------------------------
 
 ## 🚀 **Quick Start**
 
